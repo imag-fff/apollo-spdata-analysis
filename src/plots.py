@@ -12,7 +12,7 @@ from scipy import signal
 plt.rcParams["font.size"] = 18
 
 
-def _get_datetime_ticks(stream: Stream, sep: int = 8):
+def _get_datetime_ticks(stream: Stream, sep: int = 8) -> tuple[list, list]:
     starttime = stream[0].stats.starttime
     datetimes = stream[0].times()
     npts = stream[0].stats.npts
@@ -27,7 +27,7 @@ def _get_datetime_ticks(stream: Stream, sep: int = 8):
     return ticks, datetime_ticks
 
 
-def plot_spectrogram(stream: Stream, filename: Optional[str] = None):
+def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
     # initial settings
     fig = plt.figure(figsize=(24, 12))
     plt.gca().spines[:].set_visible(False)
