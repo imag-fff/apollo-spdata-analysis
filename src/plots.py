@@ -9,7 +9,7 @@ from matplotlib.ticker import ScalarFormatter
 from obspy.core.stream import Stream
 from scipy import signal
 
-plt.rcParams["font.size"] = 18
+plt.rcParams["font.size"] = 24
 
 
 def _get_datetime_ticks(stream: Stream, sep: int = 8) -> tuple[list, list]:
@@ -29,7 +29,7 @@ def _get_datetime_ticks(stream: Stream, sep: int = 8) -> tuple[list, list]:
 
 def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
     # initial settings
-    fig = plt.figure(figsize=(24, 12))
+    fig = plt.figure(figsize=(24, 16))
     plt.gca().spines[:].set_visible(False)
     plt.axis("off")
     ticks, datetime_ticks = _get_datetime_ticks(stream)
@@ -82,7 +82,7 @@ def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
     # other settings
     plt.colorbar(orientation="horizontal", label="PSD ($nm/s/√Hz$)", aspect=80)
     plt.grid(which="major")
-    plt.subplots_adjust(hspace=0.1)
+    plt.subplots_adjust(hspace=0.15)
 
     if filename:
         os.makedirs("".join(filename.split("/")[:-1]), exist_ok=True)
