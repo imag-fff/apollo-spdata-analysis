@@ -9,22 +9,9 @@ from matplotlib.ticker import ScalarFormatter
 from obspy.core.stream import Stream
 from scipy import signal
 
+from src.utils import get_datetime_ticks
+
 plt.rcParams["font.size"] = 24
-
-
-def _get_datetime_ticks(stream: Stream, sep: int = 8) -> tuple[list, list]:
-    starttime = stream[0].stats.starttime
-    datetimes = stream[0].times()
-    npts = stream[0].stats.npts
-
-    ticks = [i * npts // sep for i in range(sep)] + [npts - 1]
-    datetime_ticks = [starttime + datetimes[tick] for tick in ticks]
-    datetime_ticks = [
-        " ".join(str(item).split(".")[0].split("T")) if i % 2 == 0 else ""
-        for i, item in enumerate(datetime_ticks)
-    ]
-
-    return ticks, datetime_ticks
 
 
 def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
@@ -32,7 +19,7 @@ def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
     fig = plt.figure(figsize=(24, 16))
     plt.gca().spines[:].set_visible(False)
     plt.axis("off")
-    ticks, datetime_ticks = _get_datetime_ticks(stream)
+    ticks, datetime_ticks = get_datetime_ticks(stream)
 
     # plot waveform
     ax = fig.add_subplot(2, 1, 1)
