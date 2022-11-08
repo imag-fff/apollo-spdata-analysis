@@ -17,8 +17,8 @@ TL_SEC, TS_SEC = 1800, 300  # hyperparameters (window size of STA and LTA)
 
 def calc_sta_lta(
     stream: Stream,
-    tl_sec: float,
-    ts_sec: float,
+    tl_sec: float = TL_SEC,
+    ts_sec: float = TS_SEC,
 ) -> ndarray:
     sampling_rate = stream[0].stats.sampling_rate
     d = pd.Series(stream[0].data).abs()
@@ -44,9 +44,9 @@ def get_args_over_sta_lta_threshold(
     sta_lta_threshold: float = 10,
     run_length_threshold: Optional[float] = None,
     plot_title: Optional[str] = None,
-) -> tuple[ndarray, ndarray, ndarray]:
+) -> tuple[ndarray, ndarray]:
     if input_sta_lta is None:
-        sta_lta = calc_sta_lta(stream=stream, tl_sec=TL_SEC, ts_sec=TS_SEC)
+        sta_lta = calc_sta_lta(stream=stream)
     else:
         sta_lta = input_sta_lta.copy()
 
@@ -97,7 +97,7 @@ def get_args_over_sta_lta_threshold(
         )
 
         # visualize start line
-        ax1.vlines(start_args, 0, np.max(sta_lta), color="magenta")
+        ax1.vlines(start_args, 0, np.max(sta_lta), color="cyan")
 
         fig.tight_layout()
         ticks, datetime_ticks = get_datetime_ticks(stream)
@@ -119,7 +119,7 @@ def get_profile_details(
         raise Exception("starts != ends")
 
     if input_sta_lta is None:
-        sta_lta = calc_sta_lta(stream=stream, tl_sec=TL_SEC, ts_sec=TS_SEC)
+        sta_lta = calc_sta_lta(stream=stream)
     else:
         sta_lta = input_sta_lta.copy()
 

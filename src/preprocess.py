@@ -27,7 +27,7 @@ def remove_response(
     channel: str = "SHZ",
     location: str = "*",
     is_filled: bool = True,
-    inplace=False,
+    inplace: bool = False,
 ) -> Optional[Stream]:
     try:
         st = stream.copy() if not inplace else stream
@@ -116,7 +116,7 @@ def reduce_noise(
         # hyperparameters
         N_SECONDS = 60
         N_SAMPLES = int(st[0].stats.sampling_rate * N_SECONDS)  # window size
-        ENV_MUL, STD_MUL = 3, 1.5
+        ENV_MUL, STD_MUL = 4, 8
 
         for t in range(times):
             if is_plot:

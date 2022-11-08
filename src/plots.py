@@ -48,7 +48,7 @@ def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
         f,
         np.sqrt(sxx),
         cmap=plt.get_cmap("jet"),
-        norm=colors.LogNorm(vmin=0.3, vmax=100),
+        norm=colors.LogNorm(vmin=0.2, vmax=100),
     )
     plt.title("Spectrogram (High Freq)")
 
