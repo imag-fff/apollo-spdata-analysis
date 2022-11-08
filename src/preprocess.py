@@ -1,6 +1,5 @@
 from copy import deepcopy
 from enum import Enum
-from pprint import pprint
 from typing import Optional
 
 import matplotlib.pyplot as plt
@@ -94,9 +93,9 @@ def reduce_noise(
             ax = fig.add_subplot(1, 1, 1)
 
             if data_prev is not None:
-                ax.plot(data_prev, color="red", label="before")
+                ax.plot(data_prev, color="red", label="previous data")
             if data_current is not None:
-                ax.plot(data_current, color="black", label="after")
+                ax.plot(data_current, color="black", label="current data")
             if threshold is not None:
                 ax.plot(threshold, color="#32CD32", label="threshold")
                 ax.plot(-threshold, color="#32CD32")
