@@ -9,7 +9,7 @@ from numpy import ndarray
 from obspy.core.stream import Stream
 from scipy import signal
 
-from src.constants import FONT_SIZE, PLOT_YLIM
+from src.constants import FONT_SIZE, WAVEFORM_YLIM
 from src.utils import get_datetime_ticks
 
 plt.rcParams["font.size"] = FONT_SIZE
@@ -95,7 +95,7 @@ def get_args_over_sta_lta_threshold(
         ax2.plot(
             pd.Series(stream[0].data[-len(sta_lta) :]).abs(), color="black", alpha=0.2
         )
-        ax2.set_ylim(0, PLOT_YLIM)
+        ax2.set_ylim(0, WAVEFORM_YLIM)
 
         # visualize start line
         ax1.vlines(start_args, 0, np.max(sta_lta), color="cyan")

@@ -12,7 +12,7 @@ from obspy.core.stream import Stream
 from obspy.core.utcdatetime import UTCDateTime
 from scipy import signal
 
-from src.constants import FONT_SIZE, PLOT_YLIM
+from src.constants import FONT_SIZE, WAVEFORM_YLIM
 from src.pdart_utils import linear_interpolation
 from src.utils import get_datetime_ticks
 
@@ -106,7 +106,7 @@ def reduce_noise(
 
             ax.set_xticks(ticks, datetime_ticks)
             ax.set_xlabel("Datetime (UTC)")
-            ax.set_ylim(-PLOT_YLIM, PLOT_YLIM)
+            ax.set_ylim(-WAVEFORM_YLIM, WAVEFORM_YLIM)
             ax.set_ylabel("$m/s$")
             ax.grid(which="major")
             ax.legend(loc="upper right")
