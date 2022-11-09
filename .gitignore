@@ -5,3 +5,4 @@ logs/
 
 *.csv
 *.pkl
+.DS_Store
