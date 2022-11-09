@@ -9,9 +9,10 @@ from matplotlib.ticker import ScalarFormatter
 from obspy.core.stream import Stream
 from scipy import signal
 
+from src.constants import FONT_SIZE, PLOT_YLIM
 from src.utils import get_datetime_ticks
 
-plt.rcParams["font.size"] = 24
+plt.rcParams["font.size"] = FONT_SIZE
 
 
 def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
@@ -26,7 +27,7 @@ def plot_spectrogram(stream: Stream, filename: Optional[str] = None) -> None:
     ax.plot(stream[0].data)
     ax.set_xticks(ticks, [None] * len(ticks))
     ax.set_xmargin(0)
-    ax.set_ylim(-3e-7, 3e-7)
+    ax.set_ylim(-PLOT_YLIM, PLOT_YLIM)
     ax.set_title("Waveform")
     ax.set_ylabel("$m/s$")
     ax.grid(which="major")

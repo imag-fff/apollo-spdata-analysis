@@ -6,19 +6,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from numpy import ndarray
-from obspy.core import UTCDateTime
 from obspy.core.stream import Stream
 from scipy import signal
 
+from src.constants import FONT_SIZE, PLOT_YLIM
 from src.utils import get_datetime_ticks
 
-TL_SEC, TS_SEC = 1800, 300  # hyperparameters (window size of STA and LTA)
+plt.rcParams["font.size"] = FONT_SIZE
 
 
 def calc_sta_lta(
     stream: Stream,
-    tl_sec: float = TL_SEC,
-    ts_sec: float = TS_SEC,
+    tl_sec: float = 1800,  # window size of LTA (hyperparameter)
+    ts_sec: float = 300,  # window size of STA (hyperparameter)
 ) -> ndarray:
     sampling_rate = stream[0].stats.sampling_rate
     d = pd.Series(stream[0].data).abs()
@@ -95,6 +95,7 @@ def get_args_over_sta_lta_threshold(
         ax2.plot(
             pd.Series(stream[0].data[-len(sta_lta) :]).abs(), color="black", alpha=0.2
         )
+        ax2.set_ylim(0, PLOT_YLIM)
 
         # visualize start line
         ax1.vlines(start_args, 0, np.max(sta_lta), color="cyan")
