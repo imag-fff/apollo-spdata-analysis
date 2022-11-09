@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union
 
 from obspy.clients.fdsn.client import Client
 from obspy.core.stream import Stream
@@ -8,8 +8,8 @@ from src.pdart_utils import linear_interpolation
 
 
 def get_seismogram_iris(
-    starttime: list[int],
-    endtime: list[int],
+    starttime: Union[UTCDateTime, list[int]],
+    endtime: Union[UTCDateTime, list[int]],
     network: str = "XA",
     station: str = "S14",
     channel: str = "SHZ",
@@ -17,11 +17,13 @@ def get_seismogram_iris(
 ) -> Optional[Stream]:
     try:
         client = Client("IRIS")
-        starttime, endtime = UTCDateTime(*starttime), UTCDateTime(*endtime)
+
+        start = UTCDateTime(*starttime) if type(starttime) == list else starttime
+        end = UTCDateTime(*endtime) if type(endtime) == list else endtime
 
         st = client.get_waveforms(
-            starttime=starttime,
-            endtime=endtime,
+            starttime=start,
+            endtime=end,
             network=network,
             station=station,
             channel=channel,
@@ -34,5 +36,5 @@ def get_seismogram_iris(
         return st
 
     except Exception as e:
-        print(f"========== ERROR ==========\n\n{e}")
+        print(f"========== ERROR ==========\n\n{e}\n")
         return

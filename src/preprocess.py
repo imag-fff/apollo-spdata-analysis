@@ -1,6 +1,6 @@
 from copy import deepcopy
 from enum import Enum
-from typing import Optional
+from typing import Optional, Union
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -20,8 +20,8 @@ plt.rcParams["font.size"] = 24
 
 def remove_response(
     stream: Stream,
-    starttime: list[int],
-    endtime: list[int],
+    starttime: Union[UTCDateTime, list[int]],
+    endtime: Union[UTCDateTime, list[int]],
     network: str = "XA",
     station: str = "S14",
     channel: str = "SHZ",
@@ -32,11 +32,12 @@ def remove_response(
     try:
         st = stream.copy() if not inplace else stream
         client = Client("IRIS")
-        starttime, endtime = UTCDateTime(*starttime), UTCDateTime(*endtime)
+        start = UTCDateTime(*starttime) if type(starttime) == list else starttime
+        end = UTCDateTime(*endtime) if type(endtime) == list else endtime
 
         inv = client.get_stations(
-            starttime=starttime,
-            endtime=endtime,
+            starttime=start,
+            endtime=end,
             network=network,
             sta=station,
             loc=location,
@@ -62,7 +63,7 @@ def remove_response(
             return st
 
     except Exception as e:
-        print(f"========== ERROR ==========\n\n{e}")
+        print(f"========== ERROR ==========\n\n{e}\n")
         return
 
 
