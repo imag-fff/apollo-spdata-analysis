@@ -15,6 +15,31 @@ from src.utils import get_datetime_ticks
 plt.rcParams["font.size"] = FONT_SIZE
 
 
+def plot_current_data(
+    stream, waveform_ylim: Optional[float] = None, filename: Optional[str] = None
+) -> None:
+    fig = plt.figure(figsize=(24, 4))
+    ax = fig.add_subplot(1, 1, 1)
+    if not waveform_ylim:
+        waveform_ylim = WAVEFORM_YLIM
+
+    ax.plot(stream[0].data, color="black")
+
+    ax.set_ylim(-waveform_ylim, waveform_ylim)
+    ax.set_ylabel("$m/s$")
+    ax.grid(which="major")
+
+    ticks, datetime_ticks = get_datetime_ticks(stream)
+    ax.set_xticks(ticks, datetime_ticks)
+    ax.set_title(f"Waveform ({stream[0].stats.station}, {stream[0].stats.channel})")
+
+    if filename:
+        os.makedirs("".join(filename.split("/")[:-1]), exist_ok=True)
+        plt.savefig(filename)
+    else:
+        plt.show()
+
+
 def plot_spectrogram(
     stream: Stream,
     waveform_ylim: Optional[float] = None,
