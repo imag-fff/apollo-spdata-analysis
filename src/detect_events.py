@@ -1,3 +1,4 @@
+import os
 from copy import deepcopy
 from pprint import pprint
 from typing import Optional
@@ -44,6 +45,7 @@ def get_args_over_sta_lta_threshold(
     sta_lta_threshold: float = 10,
     run_length_threshold: Optional[float] = None,
     plot_title: Optional[str] = None,
+    plot_filename: Optional[str] = None,
 ) -> tuple[ndarray, ndarray]:
     if input_sta_lta is None:
         sta_lta = calc_sta_lta(stream=stream)
@@ -75,7 +77,7 @@ def get_args_over_sta_lta_threshold(
         start_args = start_args[target_args]
         end_args = end_args[target_args]
 
-    if plot_title:
+    if plot_title or plot_filename:
         fig = plt.figure(figsize=(24, 8))
         ax1 = fig.add_subplot(1, 1, 1)
 
@@ -88,10 +90,12 @@ def get_args_over_sta_lta_threshold(
         ax1.plot(sta_lta_over_threshold, color="red")
         ax1.plot(np.repeat(sta_lta_threshold, len(sta_lta)), color="#32CD32")
         ax1.tick_params(axis="y", labelcolor="blue")
+        ax1.set_ylim(-1, 13)
+        ax1.grid(which="major", axis="y", linestyle="dotted")
 
         # plot signal
         ax2 = ax1.twinx()
-        ax2.set_ylabel("m/s", color="black")
+        ax2.set_ylabel("|m/s|", color="black")
         ax2.plot(
             pd.Series(stream[0].data[-len(sta_lta) :]).abs(), color="black", alpha=0.2
         )
@@ -103,8 +107,13 @@ def get_args_over_sta_lta_threshold(
         fig.tight_layout()
         ticks, datetime_ticks = get_datetime_ticks(stream)
         plt.xticks(ticks, datetime_ticks)
-        plt.title(plot_title)
-        plt.show()
+        if plot_title:
+            plt.title(plot_title)
+        if plot_filename:
+            os.makedirs("/".join(plot_filename.split("/")[:-1]), exist_ok=True)
+            plt.savefig(plot_filename)
+        else:
+            plt.show()
 
     return start_args, end_args
 
@@ -115,6 +124,7 @@ def get_profile_details(
     start_args: ndarray = np.array([]),
     end_args: ndarray = np.array([]),
     plot_title: Optional[str] = None,
+    plot_filename: Optional[str] = None,
 ) -> list[dict]:
     if len(start_args) != len(end_args):
         raise Exception("starts != ends")
@@ -159,7 +169,7 @@ def get_profile_details(
         }
         profile_details.append(profile_detail)
 
-    if plot_title:
+    if plot_title or plot_filename:
         pprint(profile_details)
 
         fig = plt.figure(figsize=(24, 8))
@@ -169,13 +179,16 @@ def get_profile_details(
         ax1.set_ylabel("STA/LTA", color="blue")
         ax1.plot(sta_lta, color="blue")
         ax1.tick_params(axis="y", labelcolor="blue")
+        ax1.set_ylim(-1, 13)
+        ax1.grid(which="major", axis="y", linestyle="dotted")
 
         # plot signal
         ax2 = ax1.twinx()
-        ax2.set_ylabel("m/s", color="black")
+        ax2.set_ylabel("|m/s|", color="black")
         ax2.plot(
             pd.Series(stream[0].data[-len(sta_lta) :]).abs(), color="black", alpha=0.2
         )
+        ax2.set_ylim(0, WAVEFORM_YLIM)
 
         # visualize argmax
         ax1.vlines(
@@ -196,8 +209,13 @@ def get_profile_details(
         fig.tight_layout()
         ticks, datetime_ticks = get_datetime_ticks(stream)
         plt.xticks(ticks, datetime_ticks)
-        plt.title(plot_title)
-        plt.show()
+        if plot_title:
+            plt.title(plot_title)
+        if plot_filename:
+            os.makedirs("/".join(plot_filename.split("/")[:-1]), exist_ok=True)
+            plt.savefig(plot_filename)
+        else:
+            plt.show()
 
     return profile_details
 
