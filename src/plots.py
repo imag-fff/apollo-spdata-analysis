@@ -34,7 +34,7 @@ def plot_current_data(
     ax.set_title(f"Waveform ({stream[0].stats.station}, {stream[0].stats.channel})")
 
     if filename:
-        os.makedirs("".join(filename.split("/")[:-1]), exist_ok=True)
+        os.makedirs("/".join(filename.split("/")[:-1]), exist_ok=True)
         plt.savefig(filename)
     else:
         plt.show()
