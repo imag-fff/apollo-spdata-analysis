@@ -104,7 +104,7 @@ def plot_spectrogram(
     plt.subplots_adjust(hspace=0.15)
 
     if filename:
-        os.makedirs("".join(filename.split("/")[:-1]), exist_ok=True)
+        os.makedirs("/".join(filename.split("/")[:-1]), exist_ok=True)
         plt.savefig(filename)
     else:
         plt.show()
