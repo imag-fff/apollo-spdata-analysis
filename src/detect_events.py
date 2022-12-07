@@ -20,16 +20,21 @@ def calc_sta_lta(
     stream: Stream,
     tl_sec: float = 1800,  # window size of LTA (hyperparameter)
     ts_sec: float = 300,  # window size of STA (hyperparameter)
+    lag_sec: float = 0,  # window size of lag (hyperparameter)
 ) -> ndarray:
     sampling_rate = stream[0].stats.sampling_rate
     d = pd.Series(stream[0].data).abs()
 
-    tl, ts = round(sampling_rate * tl_sec), round(sampling_rate * ts_sec)
+    tl, ts, lag = (
+        round(sampling_rate * tl_sec),
+        round(sampling_rate * ts_sec),
+        round(sampling_rate * lag_sec),
+    )
 
     sta, lta = d.rolling(ts).mean(), d.rolling(tl).mean()
     sta, lta = sta[~pd.isnull(sta)], lta[~pd.isnull(lta)]
 
-    sta = sta.iloc[tl:]
+    sta = sta.iloc[tl + lag :]
     lta = lta.iloc[: sta.shape[0]]
 
     sta, lta = np.array(sta), np.array(lta)
