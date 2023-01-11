@@ -18,7 +18,7 @@ plt.rcParams["font.size"] = FONT_SIZE
 
 def calc_sta_lta(
     stream: Stream,
-    tl_sec: float = 1800,  # window size of LTA (hyperparameter)
+    tl_sec: float = 2400,  # window size of LTA (hyperparameter)
     ts_sec: float = 300,  # window size of STA (hyperparameter)
     lag_sec: float = 0,  # window size of lag (hyperparameter)
 ) -> ndarray:
