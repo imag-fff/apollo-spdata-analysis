@@ -215,3 +215,6 @@ def plot_event_detection(
         plt.savefig(filename)
     else:
         plt.show()
+
+    plt.clf()
+    plt.close()
