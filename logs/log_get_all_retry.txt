@@ -1,0 +1,117 @@
+S14_1970-12-31T12.pkl => ERROR
+S14_1971-01-01T00.pkl => ERROR
+S14_1971-01-01T12.pkl => ERROR
+S14_1971-01-02T00.pkl => ERROR
+S14_1971-01-02T12.pkl => ERROR
+S14_1971-01-03T00.pkl => ERROR
+S14_1971-01-03T12.pkl => ERROR
+S14_1971-01-04T00.pkl => ERROR
+S14_1971-01-04T12.pkl => ERROR
+S14_1971-01-05T00.pkl => ERROR
+S14_1971-01-05T12.pkl => ERROR
+S14_1971-01-06T00.pkl => ERROR
+S14_1971-01-06T12.pkl => ERROR
+S14_1971-01-07T00.pkl => ERROR
+S14_1971-01-07T12.pkl => ERROR
+S14_1971-01-08T00.pkl => ERROR
+S14_1971-01-08T12.pkl => ERROR
+S14_1971-01-09T00.pkl => ERROR
+S14_1971-01-09T12.pkl => ERROR
+S14_1971-01-10T00.pkl => ERROR
+S14_1971-01-10T12.pkl => ERROR
+S14_1971-01-11T00.pkl => ERROR
+S14_1971-01-11T12.pkl => ERROR
+S14_1971-01-12T00.pkl => ERROR
+S14_1971-01-12T12.pkl => ERROR
+S14_1971-01-13T00.pkl => ERROR
+S14_1971-01-13T12.pkl => ERROR
+S14_1971-01-14T00.pkl => ERROR
+S14_1971-01-14T12.pkl => ERROR
+S14_1971-01-15T00.pkl => ERROR
+S14_1971-01-15T12.pkl => ERROR
+S14_1971-01-16T00.pkl => ERROR
+S14_1971-01-16T12.pkl => ERROR
+S14_1971-01-17T00.pkl => ERROR
+S14_1971-01-17T12.pkl => ERROR
+S14_1971-01-18T00.pkl => ERROR
+S14_1971-01-18T12.pkl => ERROR
+S14_1971-01-19T00.pkl => ERROR
+S14_1971-01-19T12.pkl => ERROR
+S14_1971-01-20T00.pkl => ERROR
+S14_1971-01-20T12.pkl => ERROR
+S14_1971-01-21T00.pkl => ERROR
+S14_1971-01-21T12.pkl => ERROR
+S14_1971-01-22T00.pkl => ERROR
+S14_1971-01-22T12.pkl => ERROR
+S14_1971-01-23T00.pkl => ERROR
+S14_1971-01-23T12.pkl => ERROR
+S14_1971-01-24T00.pkl => ERROR
+S14_1971-01-24T12.pkl => ERROR
+S14_1971-01-25T00.pkl => ERROR
+S14_1971-01-25T12.pkl => ERROR
+S14_1971-01-26T00.pkl => ERROR
+S14_1971-01-26T12.pkl => ERROR
+S14_1971-01-27T00.pkl => ERROR
+S14_1971-01-27T12.pkl => ERROR
+S14_1971-01-28T00.pkl => ERROR
+S14_1971-01-28T12.pkl => ERROR
+S14_1971-01-29T00.pkl => ERROR
+S14_1971-01-29T12.pkl => ERROR
+S14_1971-01-30T00.pkl => ERROR
+S14_1971-01-30T12.pkl => ERROR
+S14_1971-01-31T00.pkl => ERROR
+S14_1971-01-31T12.pkl => ERROR
+S14_1971-02-01T00.pkl => ERROR
+S14_1971-02-01T12.pkl => ERROR
+S14_1971-02-02T00.pkl => ERROR
+S14_1971-02-02T12.pkl => ERROR
+S14_1971-02-03T00.pkl => ERROR
+S14_1971-02-03T12.pkl => ERROR
+S14_1971-02-04T00.pkl => ERROR
+S14_1971-02-04T12.pkl => ERROR
+S14_1971-07-27T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-07-29T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-03T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-04T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-07T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-08T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-19T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-08-21T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-01T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-03T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-04T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-07T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-11T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1971-10-13T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1972-04-20T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1972-04-20T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1972-06-18T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1972-06-19T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1972-06-19T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1973-07-17T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1973-07-18T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1973-12-10T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1973-12-11T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-05-03T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-05-18T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-05-18T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-06-06T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-06-07T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-07-15T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-07-22T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-07-23T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-07-23T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-09-16T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-11-14T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1974-11-15T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1975-01-27T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1975-03-01T00.pkl => 1_raw => 2_remove_response => ERROR
+S14_1975-03-01T12.pkl => ERROR
+S14_1975-03-02T00.pkl => ERROR
+S14_1975-03-02T12.pkl => ERROR
+S14_1975-03-03T00.pkl => ERROR
+S14_1975-03-03T12.pkl => ERROR
+S14_1975-03-04T00.pkl => ERROR
+S14_1975-04-19T00.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1975-04-19T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
+S14_1975-08-22T12.pkl => 1_raw => 2_remove_response => 3_reduce_noise
